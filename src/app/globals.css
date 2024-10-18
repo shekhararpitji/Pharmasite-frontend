@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --my-color: #fff;
+  /* or any other variables/style */
+}
+/* In your global.css or a specific CSS file */
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+[data-theme="dark"] {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+}
+
+/* Apply these variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* NAVLINKS=============  */
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  /* Active link styles */
+  width: 100%;
+}
